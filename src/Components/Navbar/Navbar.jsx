@@ -1,47 +1,48 @@
 import React from 'react';
-import logo from '../../assets/logo.png'
-import gitlogo from '../../assets/github_PNG47.png'
-import { Link } from 'react-router'; // Link is only needed for internal paths
+import logo from '../../assets/logo.png';
+import gitlogo from '../../assets/github_PNG47.png';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
+    const getNavLinkClass = ({ isActive }) =>
+        isActive ? 'text-sky-500 font-semibold underline' : 'text-gray-700';
+
     return (
-        <div>
-            <div className="navbar bg-base-100 shadow-sm px-20">
-                <div className="navbar-start">
-                    <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-                        </div>
-                        <ul
-                            tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <ul className="menu menu-horizontal px-1 text-[16px]">
-                                <li><a>Home</a></li>
-                                <li><a>Apps</a></li>
-                                <li><a>Installation</a></li>
-                            </ul>
-                        </ul>
+        <div className="navbar bg-base-100 shadow-sm px-20">
+            <div className="navbar-start">
+                <div className="dropdown">
+                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
                     </div>
-                    <img src={logo} alt="logo" className='h-10 w-10' /><a className="btn btn-ghost text-xl text-sky-600">HERO.IO</a>
-                </div>
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                        <li><a>Home</a></li>
-                        <li><a>Apps</a></li>
-                        <li><a>Installation</a></li>
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <li><NavLink to='/' className={getNavLinkClass} end>Home</NavLink></li>
+                        <li><NavLink to='/apps' className={getNavLinkClass}>Apps</NavLink></li>
+                        <li><NavLink to='/installation' className={getNavLinkClass}>Installation</NavLink></li>
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    {/* FIX: Use a standard <a> tag for external URL, remove <Link> wrapper */}
-                    <a
-                        href="https://github.com/nahid-code1"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn bg-sky-400 text-white text-[16px] flex items-center"
-                    >
-                        <img src={gitlogo} alt="GitHub Logo" className='w-5 h-5 mr-2' /> Contribute
-                    </a>
-                </div>
+                <img src={logo} alt="logo" className='h-10 w-10' />
+                <a className="btn btn-ghost text-xl text-sky-600">HERO.IO</a>
+            </div>
+
+            <div className="navbar-center hidden lg:flex">
+                <ul className="menu menu-horizontal px-1">
+                    <li><NavLink to='/' className={getNavLinkClass} end>Home</NavLink></li>
+                    <li><NavLink to='/apps' className={getNavLinkClass}>Apps</NavLink></li>
+                    <li><NavLink to='/installation' className={getNavLinkClass}>Installation</NavLink></li>
+                </ul>
+            </div>
+
+            <div className="navbar-end">
+                <a
+                    href="https://github.com/nahid-code1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn bg-sky-400 text-white text-[16px] flex items-center"
+                >
+                    <img src={gitlogo} alt="GitHub Logo" className='w-5 h-5 mr-2' /> Contribute
+                </a>
             </div>
         </div>
     );

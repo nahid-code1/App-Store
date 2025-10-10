@@ -2,6 +2,7 @@ import React from 'react';
 import appImage from '../../assets/Apple-App-Store-Awards-2022-Trophy_inline.jpg.slideshow-large_2x.jpg'
 import download from '../../assets/icon-downloads.png'
 import rating from '../../assets/icon-ratings.png'
+import { Link, NavLink } from 'react-router';
 
 const TrendingApps = ({ trendingData }) => {
 
@@ -26,7 +27,7 @@ const TrendingApps = ({ trendingData }) => {
                     trendingData.map((data) => {
                         return (
 
-                            <div key={data.id} className="card bg-base-100 w-96 shadow-sm">
+                            <NavLink to={`/details/${data.id}`}>  <div key={data.id} className="card bg-base-100 w-96 shadow-sm hover:bg-gray-200 cursor-pointer transform transition duration-300 hover:scale-102">
                                 <figure>
                                     <img className=' p-3 rounded-2xl'
                                         src={data.image || appImage}
@@ -47,12 +48,15 @@ const TrendingApps = ({ trendingData }) => {
                                             <img className='h-4 w-4 mr-1' src={rating} alt="" />{data.ratingAvg}</div>
                                     </div>
                                 </div>
-                            </div>
+                            </div></NavLink>
 
                         )
                     })
+
                 }
+
             </div>
+            <Link to='/apps'><button className='btn btn-primary block mx-auto mt-10 text-sm'>Show All</button></Link>
         </div>
     );
 };
