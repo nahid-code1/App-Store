@@ -6,6 +6,9 @@ import HomeBody from '../HomeBody/HomeBody';
 import AllApps from '../AllApps/AllApps';
 import Installation from '../Installation/Installation';
 import AppDetails from '../AppDetails/AppDetails';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
@@ -20,6 +23,7 @@ const Body = () => {
                 <AppDetails></AppDetails>
             </Outlet>
             <Footer></Footer>
+            <ToastContainer />
         </div>
     );
 };

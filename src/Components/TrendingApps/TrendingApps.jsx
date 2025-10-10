@@ -17,17 +17,17 @@ const TrendingApps = ({ trendingData }) => {
     };
 
     return (
-        <div>
-            <div className="text-center p-20 inter">
+        <div className='bg-[#D2D2D250] p-20'>
+            <div className="text-center inter">
                 <p className='text-5xl font-extrabold'>Trending Apps</p>
                 <p className='text-[#627382] mt-4'>Explore All Trending Apps on the Market developed by us</p>
             </div>
-            <div className="grid grid-cols-4 gap-6">
+            <div className="grid grid-cols-4 gap-4">
                 {
                     trendingData.map((data) => {
                         return (
 
-                            <NavLink to={`/details/${data.id}`}>  <div key={data.id} className="card bg-base-100 w-96 shadow-sm hover:bg-gray-200 cursor-pointer transform transition duration-300 hover:scale-102">
+                            <NavLink to={`/details/${data.id}`}>  <div key={data.id} className="card bg-base-100 w-[350px] shadow-sm hover:bg-gray-200 cursor-pointer transform transition duration-300 hover:scale-102">
                                 <figure>
                                     <img className=' p-3 rounded-2xl'
                                         src={data.image || appImage}

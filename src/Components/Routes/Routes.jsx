@@ -8,6 +8,7 @@ import AllApps from '../AllApps/AllApps';
 import Instalation from '../Installation/Installation';
 import Installation from '../Installation/Installation';
 import AppDetails from '../AppDetails/AppDetails';
+import NotFound from '../NotFound/NotFound';
 
 export const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
                 path: '/details/:id',
                 loader: () => fetch('/allAppData.json'),
                 Component: AppDetails
+            },
+            {
+                path: '*',
+                Component: NotFound
             }
 
         ]
