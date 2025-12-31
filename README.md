@@ -1,7 +1,7 @@
 # Project Name
 
 ## 🔗 Live Link
-[https://your-live-site-link.com](https://gleaming-mandazi-1d61b8.netlify.app/)
+[Live Project Link](https://gleaming-mandazi-1d61b8.netlify.app/)
 
 ---
 
